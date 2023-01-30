@@ -1,0 +1,41 @@
+/* https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
+
+*{
+    font-family: Open Sans, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+.container{
+    padding: 35px;
+}
+
+.row{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+li{
+    list-style: none;
+}
+
+.bottomSpacing{
+    border-top: 1px solid black;
+    padding: 20px 0;
+}
+
+/*  */
+
+.imageWrapper{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.imageWrapper--img{
+    width: 100%;
+}
+

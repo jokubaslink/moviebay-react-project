@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style-type: none;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 15px;
+    border-bottom: 1px solid black;
+}
+
+.page__list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.page__listItem:hover{
+    cursor: pointer;
+    border-bottom: 2px solid white;
+}

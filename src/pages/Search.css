@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 35px;
+}
+
+.row {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.bottomSpacing{
+  border-top: 1px solid black;
+  padding: 20px 0;
+}
+
+/*  */
+
+.resultsBox {
+  padding: 35px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  position: relative;
+}
+
+.resultsBox--leave{
+  cursor: pointer;
+  position: absolute;
+  font-size: 36px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 15px;
+}
+
+.movieBox {
+  width: calc(100% / 4);
+}
+
+.movieImageWrapper {
+  max-width: 300px;
+}
+
+.movieImageWrapper--img:hover{
+  cursor: pointer;
+  background-color: rgb(36,36,36);
+  opacity: 0.5;
+  overflow: hidden;
+  transform: scale(1.05);
+}
+
+.img__overlay{
+  position: absolute;
+  top: 150px;
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+}
+
+.movieImageWrapper--img{
+  width: 100%;
+  transition: all 300ms ease;
+  height: 100%;
+}
+
+.noImg{
+  height: 400px;
+}
+
+.movieBox--title{
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+.movieBox--type{
+  font-weight: bold;
+  padding: 0 0 10px 0;
+}

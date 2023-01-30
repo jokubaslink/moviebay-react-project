@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 35px;
+}
+
+.row {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.bottomSpacing {
+  border-top: 1px solid black;
+  padding: 20px 0;
+}
+/*  */
+
+.resultsBox--leave{
+    cursor: pointer;
+    position: absolute;
+    font-size: 36px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 60px;
+    top: 60px;
+  }
+
+/*  */
+
+.movieWrapper {
+position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 0;
+}
+
+.movieWrapper__info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movieWrapper__info--plot{
+    max-width: 500px;
+    width: 100%;
+}
