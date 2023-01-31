@@ -10,11 +10,13 @@
 
 .container{
     padding: 35px;
+    height: 100vh;
 }
 
 .row{
     max-width: 1200px;
     width: 100%;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -25,6 +27,12 @@ li{
 .bottomSpacing{
     border-top: 1px solid black;
     padding: 20px 0;
+}
+
+.topSpacing{
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    margin-bottom: 34px;
 }
 
 /*  */
