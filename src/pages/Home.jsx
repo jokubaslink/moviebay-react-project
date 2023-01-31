@@ -13,14 +13,11 @@ function Home() {
           <Nav />
           <Input />
 
-          <div className="bottomSpacing"></div>
-
-
           <figure className="imageWrapper">
             <img src={image} alt="" className="imageWrapper--img"/>
           </figure>
 
-    <div className="topSpacing"></div>
+    <div className="spacing"></div>
 
 
         <Footer />

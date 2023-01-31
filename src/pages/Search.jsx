@@ -91,8 +91,8 @@ function Search() {
                   </div>
                 ))}
           </div>
-
           <div className="bottomSpacing">
+          <div className="spacing"></div>
             <Footer />
           </div>
         </div>
