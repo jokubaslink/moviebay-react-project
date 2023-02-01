@@ -20,9 +20,9 @@ function Search() {
       );
       console.log(data.Search);
       getVideos(data.Search);
+      setLoading(false);
     }
     fetchMovies();
-    setLoading(false);
   }, []);
 
   return (
@@ -49,7 +49,7 @@ function Search() {
               </svg>
             </button>
             {loading
-              ? new Array(videos.length).fill(0).map((_, index) => (
+              ? new Array(10).fill(0).map((_, index) => (
                   <div className="movieBox" key={index}>
                     <div className="movieImageWrapper--skeleton">
                       <div className="movieImageWrapper--img--skeleton"></div>

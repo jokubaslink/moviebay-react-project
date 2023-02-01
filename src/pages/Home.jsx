@@ -17,10 +17,11 @@ function Home() {
             <img src={image} alt="" className="imageWrapper--img"/>
           </figure>
 
-    <div className="spacing"></div>
+    <div className="spacingBorder"></div>
 
 
         <Footer />
+
 
 
         </div>
