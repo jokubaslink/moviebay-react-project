@@ -23,9 +23,12 @@
   text-transform: capitalize;
 }
 
-.bottomSpacing{
+.borderSpacing{
   border-top: 1px solid black;
-  padding: 10px 0 30px 0;
+}
+
+.borderSpacing{
+  border-top: 1px solid black;
 }
 
 .spacing{
@@ -37,27 +40,12 @@
 /*  */
 
 .resultsBox {
-  padding: 35px;
+  padding: 0px 35px 35px 35px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
   position: relative;
-}
-
-.resultsBox--leave{
-  cursor: pointer;
-  position: absolute;
-  font-size: 36px;
-  color: white;
-  background-color: transparent;
-  border: none;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 15px;
 }
 
 .movieBox {
@@ -66,6 +54,7 @@
 
 .movieImageWrapper {
   max-width: 300px;
+  max-height: 500px;
 }
 
 .movieImageWrapper--img:hover{
@@ -91,7 +80,7 @@
 }
 
 .noImg{
-  height: 400px;
+  height: 100%;
 }
 
 .movieBox--title{
@@ -136,3 +125,90 @@
   width: 200px;
   background-color: gray;
 }
+
+.movieBox--notFound{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-height: 65vh;
+}
+
+.movieBox--notFound h1{
+  margin-top: 25px;
+}
+
+/* topx */
+
+.leaveButton{
+  cursor: pointer;
+  font-size: 36px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.searchTop{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.searchBottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0 50px 0;
+}
+
+.searchInputBox{
+  position: relative;
+  border-radius: 30px;
+  max-width: 500px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.searchInputBox--input{
+  padding: 0 0 0 15px;
+  font-size: 14px;
+  width: 100%;
+  height: 60px;
+}
+
+.searchInputBox--button{
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  bottom: 0;
+  width: 35px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#filter{
+  font-size: 12px;
+  width: 185px;
+  height: 36px;
+  border: 2px solid black;
+}
+
