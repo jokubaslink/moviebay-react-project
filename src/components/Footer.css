@@ -10,6 +10,7 @@ footer{
     align-items: center;
     justify-content: center;
     font-size: 12px;
+    text-align: center;
 }
 
 .link:hover{

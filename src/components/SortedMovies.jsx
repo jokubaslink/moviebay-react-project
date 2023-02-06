@@ -52,6 +52,7 @@ function SortedMovies({filter}) {
                 alt=""
                 className="movieImageWrapper--img"
               />
+              <span className="hoverTip">More Details</span>
             </figure>
           ) : (
             <figure className="movieImageWrapper">
@@ -60,6 +61,7 @@ function SortedMovies({filter}) {
                 alt=""
                 className="movieImageWrapper--img noImg"
               />
+              <span className="hoverTip">More Details</span>
             </figure>
           )}
           <h3 className="movieBox--title">{video.Title}</h3>
@@ -81,6 +83,7 @@ function SortedMovies({filter}) {
                 alt=""
                 className="movieImageWrapper--img"
               />
+              <span className="hoverTip">More Details</span>
             </figure>
           ) : (
             <figure className="movieImageWrapper">
@@ -89,6 +92,7 @@ function SortedMovies({filter}) {
                 alt=""
                 className="movieImageWrapper--img noImg"
               />
+              <span className="hoverTip">More Details</span>
             </figure>
           )}
           <h3 className="movieBox--title">{video.Title}</h3>
@@ -110,6 +114,7 @@ function SortedMovies({filter}) {
                 alt=""
                 className="movieImageWrapper--img"
               />
+              <span className="hoverTip">More Details</span>
             </figure>
           ) : (
             <figure className="movieImageWrapper">
@@ -118,6 +123,7 @@ function SortedMovies({filter}) {
                 alt=""
                 className="movieImageWrapper--img noImg"
               />
+              <span className="hoverTip">More Details</span>
             </figure>
           )}
           <h3 className="movieBox--title">{video.Title}</h3>

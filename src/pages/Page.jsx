@@ -2,67 +2,47 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Nav from "../components/Nav";
+import noImage from "../assets/noimgavailable.jpg";
 import "./Page.css";
 
 function Page() {
   const navigate = useNavigate();
   const { movieId } = useParams();
   const [video, getVideo] = useState([]);
-  const [videos, getVideos] = useState([])
+  const [videos, getVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const { searchTerm } = useParams();
 
-/*   
-useEffect(() => {
-    async function fetchMovie() {
-      const { data } = await axios.get(
-        `https://www.omdbapi.com/?apikey=eeef1900&i=${movieId}`
-      );
-      getVideo(data);
-      setLoading(false);
-    }
-    fetchMovie();
-  }, []);
+  async function fetchMovie() {
+    const { data } = await axios.get(
+      `https://www.omdbapi.com/?apikey=eeef1900&i=${movieId}`
+    );
+    getVideo(data);
+    setLoading(false);
+  }
+
+  async function fetchMovies() {
+    const { data } = await axios.get(
+      `https://www.omdbapi.com/?apikey=eeef1900&s=${searchTerm}`
+    );
+    getVideos(data.Search);
+    setLoading(false);
+  }
 
   useEffect(() => {
-    async function fetchMovies(){
-      const { data } = await axios.get(
-        `https://www.omdbapi.com/?apikey=eeef1900&s=${searchTerm}`
-      );
-      getVideos(data.Search)
-      setLoading(false);
-    }
+    fetchMovie();
     fetchMovies();
-  }, [])
-*/
-
-async function fetchMovie() {
-  const { data } = await axios.get(
-    `https://www.omdbapi.com/?apikey=eeef1900&i=${movieId}`
-  );
-  getVideo(data);
-  setLoading(false);
-}
-
-async function fetchMovies(){
-  const { data } = await axios.get(
-    `https://www.omdbapi.com/?apikey=eeef1900&s=${searchTerm}`
-  );
-  getVideos(data.Search)
-  setLoading(false);
-}
-
-useEffect(() => {
-  fetchMovie();
-  fetchMovies();
-}, [])
+  }, []);
 
   return (
     <div className="container">
       <div className="row">
         <Nav />
         <div className="movieWrapper">
-          <button className="resultsBox--leave" onClick={() => navigate(-1)}>
+          <button
+            className="resultsBox--leave"
+            onClick={() => navigate(`/${searchTerm}`)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -97,11 +77,19 @@ useEffect(() => {
           ) : (
             <>
               <figure className="movieWrapper__image">
-                <img
-                  className="movieWrapper__image--img"
-                  src={video.Poster}
-                  alt=""
-                />
+                {video.Poster === "N/A" ? (
+                  <img
+                    className="movieWrapper__image--img"
+                    src={noImage}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className="movieWrapper__image--img"
+                    src={video.Poster}
+                    alt=""
+                  />
+                )}
               </figure>
               <div className="movieWrapper__info">
                 <h1 className="movieWrapper__info--h1">{video.Title}</h1>
@@ -121,20 +109,35 @@ useEffect(() => {
           <h2>Similar movies:</h2>
           {loading ? (
             <div className="similarMoviesWrapper">
-            {new Array(4).fill(0).map((_, index) => (
-              <div className="skeletonWrapper__similar"key={index} >
-                <div className="skeletonWrapper__similar--img"></div>
-              </div>
-            ))}
+              {new Array(4).fill(0).map((_, index) => (
+                <div className="skeletonWrapper__similar" key={index}>
+                  <div className="skeletonWrapper__similar--img"></div>
+                </div>
+              ))}
             </div>
           ) : (
             <div className="similarMoviesWrapper">
-              {videos.slice(0,4).map((item , index) => (
-                <figure className="similarMoviesWrapper__image" key={index}>
-                  <img
-                    className="similarMoviesWrapper__image--img"
-                    src={item.Poster}
-                  ></img>
+              {videos.slice(0, 4).map((item, index) => (
+                <figure
+                  className="similarMoviesWrapper__image"
+                  key={index}
+                  onClick={() => {
+                    navigate(`/${searchTerm}/${item.imdbID}`);
+                    window.location.reload(false);
+                  }}
+                >
+                  {item.Poster !== "N/A" ? (
+                    <img
+                      className="similarMoviesWrapper__image--img"
+                      src={item.Poster}
+                    ></img>
+                  ) : (
+                    <img
+                      className="similarMoviesWrapper__image--img"
+                      src={noImage}
+                    ></img>
+                  )}
+                  <span className="hoverTip">More Details</span>
                 </figure>
               ))}
             </div>

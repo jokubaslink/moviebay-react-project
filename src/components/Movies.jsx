@@ -34,6 +34,7 @@ function Movies() {
                 alt=""
                 className="movieImageWrapper--img"
               />
+              <span className="hoverTip">More Details</span>
             </figure>
           ) : (
             <figure className="movieImageWrapper">
@@ -48,7 +49,7 @@ function Movies() {
           <p className="movieBox--type">
             Type: <span className="capitalize">{video.Type}</span>
           </p>
-          <p>Year: {video.Year}</p>
+          <p className="movieBox--year">Year: {video.Year}</p>
         </div>
       ))}
     </>

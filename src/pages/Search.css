@@ -40,7 +40,7 @@
 /*  */
 
 .resultsBox {
-  padding: 0px 35px 35px 35px;
+  padding: 0px 35px 0px 35px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -50,33 +50,53 @@
 
 .movieBox {
   width: calc(100% / 4);
+  text-align: center;
 }
 
 .movieImageWrapper {
+  position: relative;
   max-width: 300px;
   max-height: 500px;
+  transition: all 300ms ease;
 }
 
-.movieImageWrapper--img:hover{
+/*  */
+
+.movieImageWrapper:hover{
   cursor: pointer;
-  background-color: rgb(36,36,36);
-  opacity: 0.5;
   overflow: hidden;
   transform: scale(1.05);
+  transition: all 300ms ease;
 }
 
-.img__overlay{
-  position: absolute;
-  top: 150px;
-  font-weight: bold;
-  color: black;
-  font-size: 18px;
+.movieImageWrapper:hover .movieImageWrapper--img{
+  opacity: 0.5;
 }
 
 .movieImageWrapper--img{
-  width: 100%;
-  transition: all 300ms ease;
   height: 100%;
+  width: 100%;
+}
+
+.movieImageWrapper--img{
+  transition: all 300ms ease;
+}
+
+.movieImageWrapper:hover .hoverTip{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hoverTip{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  display: none;
 }
 
 .noImg{
@@ -174,6 +194,10 @@
   padding: 30px 0 50px 0;
 }
 
+.searchBottom--title{
+  text-align: center;
+}
+
 .searchInputBox{
   position: relative;
   border-radius: 30px;
@@ -212,3 +236,42 @@
   border: 2px solid black;
 }
 
+/*  */
+
+@media (max-width: 768px){
+  .movieBox {
+    width: calc(100% / 3);
+  }
+  .searchBottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0 30px 0;
+  }
+  .searchInputBox{
+    max-width: 400px;
+  }
+  .resultsBox {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px){
+  .movieBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .movieImageWrapper--skeleton{
+    width: 100%;
+  }
+} 
+
+@media (max-width: 480px){
+
+} 

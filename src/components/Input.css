@@ -54,3 +54,17 @@
     background-color: transparent;
     cursor: pointer;
 }
+
+/* 768 600 */
+
+@media (max-width: 900px){
+    .input__wrapperTextBox{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 500px){
+    .input__wrapperTextBox{
+        font-size: 18px;
+    }
+}

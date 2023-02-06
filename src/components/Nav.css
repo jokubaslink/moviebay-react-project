@@ -27,3 +27,63 @@ nav{
     cursor: pointer;
     border-bottom: 2px solid white;
 }
+
+.menuButton,
+.menuButton--close{
+    display: none;
+}
+
+.menuButton{
+    position: absolute;
+    right: 50px;
+}
+
+.menuButton--close{
+    position: absolute;
+    right: 50px;
+}
+
+@media (max-width: 768px){
+    .page__logo--h2{
+        font-size: 22px;
+    }
+    .page__logo--p{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 650px){
+    .page__list{
+        display: none;
+    }
+
+    .menuButton{
+        display: block;
+        width: 36px;
+        height:36px;
+        font-size: 18px;
+        color: white;
+        background-color: transparent;
+        border: none;
+    }
+
+    .menuButton--close{
+        z-index: 2;
+        display: block;
+        width: 36px;
+        height:36px;
+        font-size: 18px;
+        color: white;
+        background-color: transparent;
+        border: none;
+    }
+}
+
+@media (max-width: 420px){
+    .page__logo--h2{
+        font-size: 20px;
+    }
+    .page__logo--p{
+        font-size: 12px;
+    }
+}

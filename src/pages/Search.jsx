@@ -101,7 +101,7 @@ function Search() {
           <div className="borderSpacing"></div>
 
           <div className="searchBottom">
-            <h2>Search results for: {searchTerm}</h2>
+            <h2 className="searchBottom--title">Search results for: {searchTerm}</h2>
             <div className="sortWrapper">
               <select onChange={(e) => setSort(e.target.value)} id="filter">
                 <option defaultValue={true}>
@@ -132,6 +132,7 @@ function Search() {
             ) : sort ? <SortedMovies filter={sort} /> : <Movies />
             }
           </div>
+          <div className="spacing"></div>
           <div className="borderSpacing--padding">
             <div className="spacing"></div>
             <Footer />
