@@ -8,6 +8,9 @@
     display: none;
 }
 
+.AuthModal--close{
+    right: 5%;
+}
 
 @media (max-width: 650px){
     .dropdown__list{

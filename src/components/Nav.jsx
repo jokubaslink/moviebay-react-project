@@ -1,11 +1,18 @@
+// https://frontendsimplified.com/firebase/auth 7:34
+
 import React from "react";
 import { useState } from "react";
 import Dropdown from "./Dropdown";
 import "./Nav.css";
+import { useNavigate } from "react-router-dom";
+import AuthModal from "./AuthModal";
 
 function Nav() {
-  const loggedin = false;
+  const [loggedin, setLoggedIn] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [select, setSelect] = useState('');
+  const navigate = useNavigate();
 
   return (
     <nav>
@@ -19,13 +26,13 @@ function Nav() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
-          class="w-6 h-6"
+          className="w-6 h-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
@@ -52,27 +59,54 @@ function Nav() {
               />
             </svg>
           </button>
-          <Dropdown />
+          <Dropdown logState={loggedin} modalState={modal} />
         </>
       )}
       <ul className="page__list">
         {!loggedin ? (
           <>
-            <li className="page__listItem">Login</li>
-            <li className="page__listItem">Sign Up</li>
+            <li className="page__listItem" onClick={() => {setModal(true)
+            setLoggedIn(true)
+            setSelect('login')
+            }}>
+              Login
+            </li>
+            <li className="page__listItem" onClick={() => {setModal(true)
+            setLoggedIn(true)
+            setSelect('signup')
+            }}>
+              Sign Up
+            </li>
             <li className="page__listItem">Contact</li>
           </>
-        ) : (
-          <>
-            {" "}
-            <li className="page__listItem">Profile</li>
-            <li className="page__listItem">Log Out</li>
-            <li className="page__listItem">Contact</li>
+        ) : 
+        <>
+          {modal === true ? (
+            <>
+            <button className="AuthModal--close" onClick={() => {
+              setModal((prev) => !prev)
+              setLoggedIn((prev) => !prev)
+            }}>X</button>
+            <AuthModal selection={select}/>
+            </>
+            ) : (
+              <>
+                <li
+                  className="page__listItem"
+                  onClick={() => navigate(`/profile/profileID`)}
+                >
+                  Profile
+                </li>
+                <li className="page__listItem">Log Out</li>
+                <li className="page__listItem">Contact</li>{" "}
+              </>
+            )}
           </>
-        )}
+        }
       </ul>
     </nav>
   );
 }
 
 export default Nav;
+export const loggedin = false;

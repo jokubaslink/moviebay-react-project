@@ -1,0 +1,40 @@
+button{
+    cursor: pointer;
+}
+
+.authModal{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+    gap: 35px;
+}
+
+.inputWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputWrapper input{
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0 0 0 10px;
+}
+
+.inputWrapper button{
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin: 0 auto;
+}

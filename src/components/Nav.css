@@ -43,6 +43,13 @@ nav{
     right: 50px;
 }
 
+.AuthModal--close{
+    z-index: 2;
+    position: absolute;
+    top: 27.5%;
+    right: 38.5%;
+}
+
 @media (max-width: 768px){
     .page__logo--h2{
         font-size: 22px;
