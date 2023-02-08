@@ -1,0 +1,36 @@
+.container {
+  padding: 35px;
+}
+
+.row {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.borderSpacing {
+  border-top: 1px solid black;
+}
+
+.borderSpacing--padding {
+  border-top: 1px solid black;
+  padding: 20px 0;
+}
+
+.spacing {
+  margin-bottom: 20px;
+  padding: 0;
+  border: none;
+}
+
+/*  */
+
+.favouriteMovies{
+  margin-top: 40px;
+  border: 1px solid black;
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+

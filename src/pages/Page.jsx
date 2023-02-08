@@ -4,6 +4,10 @@ import axios from "axios";
 import Nav from "../components/Nav";
 import noImage from "../assets/noimgavailable.jpg";
 import "./Page.css";
+import {collection, addDoc} from "firebase/firestore";
+import { db } from "../firebase/init";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase/init";
 
 function Page() {
   const navigate = useNavigate();
@@ -11,7 +15,28 @@ function Page() {
   const [video, getVideo] = useState([]);
   const [videos, getVideos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState('');
   const { searchTerm } = useParams();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if(user){
+        setUser(user.uid)
+        console.log(user.uid)
+      }
+    })
+  })
+
+  function likeMovie(){
+    const movie ={
+      title: movieId,
+      term: searchTerm,
+      user: user,
+    };
+    addDoc(collection(db, "likes"), movie)
+    console.log(movie)
+    console.log('great success!!')
+  }
 
   async function fetchMovie() {
     const { data } = await axios.get(
@@ -101,6 +126,22 @@ function Page() {
               </div>
             </>
           )}
+          <button className="likeButton" onClick={likeMovie}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              />
+            </svg>
+          </button>
         </div>
 
         <div className="borderSpacing"></div>
@@ -137,7 +178,7 @@ function Page() {
                       src={noImage}
                     ></img>
                   )}
-                  <span className="hoverTip">More Details</span>
+                  <span className="hoverTip">{item.Title}</span>
                 </figure>
               ))}
             </div>

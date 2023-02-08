@@ -1,15 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .dropdown__list{
     display: none;
-}
-
-.AuthModal--close{
-    right: 5%;
 }
 
 @media (max-width: 650px){
@@ -30,5 +20,4 @@
         flex-direction: column;
         gap: 20px;
     }
-    
 }

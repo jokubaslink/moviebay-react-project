@@ -1,33 +1,52 @@
-import React from "react";
-import { auth } from "../firebase/init";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import "./AuthModal.css";
+//"email@email.com", "test123"
+// test@gmail.com, test123
 
-function AuthModal({ selection }) {
+import React from "react";
+import { auth, db } from "../firebase/init";
+import { 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+ } from "firebase/auth";
+import "./AuthModal.css";
+import { useState } from "react";
+
+function AuthModal({ selection, func}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   function register() {
-    createUserWithEmailAndPassword(auth, "email@email.com", "test123")
+    createUserWithEmailAndPassword(auth, email, password)
       .then((user) => {
         console.log(user);
+        func('registered')
+
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  function work(){
-    console.log(selection)
+  function login(){
+    signInWithEmailAndPassword(auth, email, password)
+    .then((user) => {
+      console.log(user);
+      func('loggedin');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
-  work()
 
   return (
+
     <div className="authModal">
       {selection === "login" ? (
         <>
           <h1>Welcome back to MoviesBay!</h1>
           <div className="inputWrapper">
-            <input type="email" placeholder="Type in your email" />
-            <input type="password" placeholder="Type in your password" />
-            <button onClick={register}>Login</button>
+            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Type in your email" />
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Type in your password" />
+            <button onClick={login}>Login</button>
           </div>
         </>
       ) : (
@@ -35,8 +54,8 @@ function AuthModal({ selection }) {
           {" "}
           <h1>Register to MoviesBay!</h1>
           <div className="inputWrapper">
-            <input type="email" placeholder="Type in your email" />
-            <input type="password" placeholder="Type in your password" />
+            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Type in your email" />
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Type in your password" />
             <button onClick={register}>Register</button>
           </div>
         </>

@@ -16,6 +16,7 @@
   border-top: 1px solid black;
   padding: 20px 0;
 }
+
 /*  */
 
 .resultsBox--leave{
@@ -66,6 +67,18 @@ position: relative;
 .movieWrapper__info--plot{
     max-width: 500px;
     width: 100%;
+}
+
+.likeButton{
+  width: 36px;
+  height: 36px;
+  color: white;
+  border: none;
+  background-color: transparent;
+}
+
+.likeButton:active {
+  color: red;
 }
 
 /* Skeleton loading state */
