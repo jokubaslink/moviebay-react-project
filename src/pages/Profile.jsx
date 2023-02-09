@@ -9,7 +9,6 @@ import axios from "axios";
 
 function Profile() {
   const [deita, setDeita] = useState([]);
-  const [movies, setMovies] = useState([]);
   const [user, setUser] = useState('');
   const [userEmail, setUserEmail] = useState('');
 
@@ -21,20 +20,17 @@ function Profile() {
         console.log(user)
       }
     })
+    async function getLikes(){
+      const likeCollectionRef = await query(
+        collection(db, "likes"),
+        where("user", "==", user)
+      )
+      const {docs} = await getDocs(likeCollectionRef);
+      const data = docs.map(doc => doc.data())
+      console.log(data)
+    }
+    getLikes()
   }, [])
-
- useEffect(() => {
-  async function getLikes(){
-    const likeCollectionRef = await query(
-      collection(db, "likes"),
-      where("user", "==", user)
-    )
-    const {docs} = await getDocs(likeCollectionRef);
-    console.log(docs.map(doc => doc.data().term))
-  }
-  getLikes()
-  console.log(deita)
- }, [user])
 
   return (
     <div className="container">
@@ -47,13 +43,6 @@ function Profile() {
             <div className="spacing"></div>
             <h3>Favourite Movies:</h3>
             <div className="favouriteMovies">
- {/*              {
-                movies.map((movie, index) => (
-                  <div className="movieWrapper" index={index}>
-                    Movie
-                  </div>
-                ))
-              } */}
             </div>
           </div>
         </div>
