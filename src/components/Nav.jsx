@@ -6,7 +6,7 @@ import Dropdown from "./Dropdown";
 import "./Nav.css";
 import { useNavigate } from "react-router-dom";
 import AuthModal from "./AuthModal";
-import { auth, db } from "../firebase/init";
+import { auth } from "../firebase/init";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 
 function Nav() {
@@ -14,7 +14,6 @@ function Nav() {
   const [menu, setMenu] = useState(false);
   const [modal, setModal] = useState(false);
   const [select, setSelect] = useState("");
-  const [account, setAccount] = useState({})
   const navigate = useNavigate();
 
   const pull_state = (data) => {
@@ -32,7 +31,6 @@ function Nav() {
     onAuthStateChanged(auth, (user) => {
       console.log(user)
       if(user){
-        setAccount(user)
         setLoggedIn(true)
       }
     })

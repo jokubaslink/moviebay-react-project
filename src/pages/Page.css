@@ -77,8 +77,12 @@ position: relative;
   background-color: transparent;
 }
 
-.likeButton:active {
+.liked {
   color: red;
+}
+
+.notLiked{
+  color:white;
 }
 
 /* Skeleton loading state */
