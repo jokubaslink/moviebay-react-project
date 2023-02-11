@@ -17,9 +17,13 @@ function Nav() {
   const navigate = useNavigate();
 
   const pull_state = (data) => {
-    if (data === "loggedin") {
+    if (data === "loggedin" || data == 'registered') {
       setLoggedIn(true);
+      setModal(false)
       console.log(loggedin);
+    }
+    else{
+      setLoggedIn(false)
     }
   };
 
@@ -32,6 +36,9 @@ function Nav() {
       console.log(user)
       if(user){
         setLoggedIn(true)
+      }
+      else{
+        setLoggedIn(false)
       }
     })
   }, [])
@@ -152,7 +159,7 @@ function Nav() {
             >
               Log Out
             </li>
-            <li className="page__listItem">Contact</li>{" "}
+            <li className="page__listItem notWorking">Contact</li>{" "}
           </>
         )}
       </ul>

@@ -16,3 +16,10 @@ footer{
 .link:hover{
     border-bottom: 2px solid white;
 }
+
+.link{
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}

@@ -19,7 +19,6 @@ function AuthModal({ selection, func}) {
       .then((user) => {
         console.log(user);
         func('registered')
-
       })
       .catch((error) => {
         console.log(error);
@@ -38,7 +37,6 @@ function AuthModal({ selection, func}) {
   }
 
   return (
-
     <div className="authModal">
       {selection === "login" ? (
         <>
