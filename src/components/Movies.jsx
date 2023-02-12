@@ -13,7 +13,6 @@ function Movies() {
       const { data } = await axios.get(
         `https://www.omdbapi.com/?apikey=eeef1900&s=${searchTerm}`
       );
-      console.log(data.Search);
       getVideos(data.Search);
     }
     fetchMovies();

@@ -2,7 +2,7 @@
 // test@gmail.com, test123
 
 import React from "react";
-import { auth, db } from "../firebase/init";
+import { auth } from "../firebase/init";
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -17,22 +17,20 @@ function AuthModal({ selection, func}) {
   function register() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((user) => {
-        console.log(user);
         func('registered')
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }
 
   function login(){
     signInWithEmailAndPassword(auth, email, password)
     .then((user) => {
-      console.log(user);
       func('loggedin');
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
   }
 

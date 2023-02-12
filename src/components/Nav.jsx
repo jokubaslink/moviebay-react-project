@@ -17,10 +17,9 @@ function Nav() {
   const navigate = useNavigate();
 
   const pull_state = (data) => {
-    if (data === "loggedin" || data == 'registered') {
+    if (data === "loggedin" || data === 'registered') {
       setLoggedIn(true);
       setModal(false)
-      console.log(loggedin);
     }
     else{
       setLoggedIn(false)
@@ -33,7 +32,6 @@ function Nav() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user)
       if(user){
         setLoggedIn(true)
       }

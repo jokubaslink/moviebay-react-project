@@ -22,7 +22,6 @@ function Profile() {
         setUser(user.uid);
         setUserEmail(user.email);
         setUserLoad(false);
-        console.log(user);
       }
     });
   }, []);
